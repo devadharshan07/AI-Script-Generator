@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>ISCRIPT</h1>
+    <form action="/" method="post">
+        <label for="main_character">Main Character(can enter upto 5):</label>
+        <input type="text" name="main_character" required>
+
+        <label for="side_character">Side Character(can enter upto 5):</label>
+        <input type="text" name="side_character" required>
+
+        <label for="villain">Villain(only 1):</label>
+        <input type="text" name="villain" required>
+
+        <label for="scene_description">Scene Description:</label>
+        <input type="text" name="scene_description" required>
+
+        <label for="scene_type">Scene Type:</label>
+        <select name="scene_type" required>
+            <option value="INT.">Interior</option>
+            <option value="EXT.">Exterior</option>
+        </select>
+
+        <button type="submit">Generate Script</button>
+    </form>
+
+    {% if script %}
+        <h2>Generated Script</h2>
+        <pre>{{ script | safe }}</pre>
+    {% endif %}
+</body>
+</html>
